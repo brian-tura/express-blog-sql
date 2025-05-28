@@ -10,15 +10,35 @@ const index = (req, res) => {
         res.json(results);
         console.log(results)
     })
-
-    res.send("Elenco post")
 }
 
 const show = (req, res) => {
-    res.send(`Dettaglio post ${req.params.id}`)
+    const id = req.params.id
+
+    const sql = "SELECT * FROM `posts` WHERE id = "+id;
+
+    connection.query(sql, [id], (err, results) => {
+        if(err) {
+            return res.status(500).json({error: "Database query failed"})
+        }
+        res.json(results[0]);
+        console.log(results[0])
+    })
 }
+
+const destroy = (req, res) => {
+    const id = req.params.id
+
+    connection.query("DELETE FROM `posts` WHERE id = ?", [id], (err) => {
+         if(err) {
+            return res.status(500).json({error: "Database query failed"})
+        }
+        res.sendStatus(204);
+    })
+} 
 
 module.exports = {
     index,
-    show
+    show,
+    destroy
 }
