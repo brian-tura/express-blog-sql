@@ -20,4 +20,4 @@ Verifichiamo su Postman che la risposta sia corretta
 Numero di push: minimo 8
 Bonus:
 Far sì che la SHOW restituisca il post comprensivo di tag, recuperandoli grazie alla relazione tra post e tags, esistente sul database
-Buon lavoro! (modificato) 
+Buon lavoro! (modificato);
