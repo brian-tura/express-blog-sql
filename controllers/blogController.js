@@ -35,7 +35,7 @@ const destroy = (req, res) => {
         }
         res.sendStatus(204);
     })
-} 
+}
 
 module.exports = {
     index,
